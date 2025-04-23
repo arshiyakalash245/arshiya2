@@ -8,16 +8,25 @@
     body {
       margin: 0;
       padding: 0;
-      background: #121212;
-      color: #f0f0f0;
       font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
       display: flex;
       flex-direction: column;
       align-items: center;
       justify-content: center;
       height: 100vh;
-      overflow-x: hidden;
+      overflow: hidden;
       scroll-behavior: smooth;
+      position: relative;
+      background: linear-gradient(-45deg, #1e1e1e, #2c2c2c, #3a3a3a, #1e1e1e);
+      background-size: 400% 400%;
+      animation: gradientBG 12s ease infinite;
+      color: #f0f0f0;
+    }
+
+    @keyframes gradientBG {
+      0% { background-position: 0% 50%; }
+      50% { background-position: 100% 50%; }
+      100% { background-position: 0% 50%; }
     }
 
     .profile-img {
@@ -56,7 +65,7 @@
       color: #ffffff;
     }
 
-    /* انیمیشن‌ها */
+    /* انیمیشن Fade In */
     @keyframes fadeInUp {
       0% {
         opacity: 0;
@@ -77,6 +86,23 @@
     .animate:nth-of-type(2) { animation-delay: 0.4s; }
     .animate:nth-of-type(3) { animation-delay: 0.6s; }
     .animate:nth-of-type(4) { animation-delay: 0.8s; }
+
+    /* تصویر دختر انیمه‌ای */
+    .anime-girl {
+      position: absolute;
+      bottom: 0;
+      right: 0;
+      width: 200px;
+      opacity: 0.9;
+      pointer-events: none;
+      user-select: none;
+    }
+
+    @media (max-width: 600px) {
+      .anime-girl {
+        display: none;
+      }
+    }
   </style>
 </head>
 <body>
@@ -92,6 +118,9 @@
     <a href="https://t.me/lranTheory" target="_blank">Telegram</a>
     <a href="https://www.instagram.com/dark.light_yt?igsh=MTIzYThmc3d4ejk4eA==" target="_blank">Instagram</a>
   </div>
+
+  <!-- تصویر دختر انیمه‌ای -->
+  <img src="https://i.postimg.cc/pX4xG9GZ/anime-girl.png" alt="Anime Girl" class="anime-girl">
 
 </body>
 </html>
