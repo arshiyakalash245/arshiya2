@@ -55,18 +55,40 @@
     .links a:hover {
       color: #ffffff;
     }
+
+    /* انیمیشن‌ها */
+    @keyframes fadeInUp {
+      0% {
+        opacity: 0;
+        transform: translateY(40px);
+      }
+      100% {
+        opacity: 1;
+        transform: translateY(0);
+      }
+    }
+
+    .animate {
+      opacity: 0;
+      animation: fadeInUp 1s ease forwards;
+    }
+
+    .animate:nth-of-type(1) { animation-delay: 0.2s; }
+    .animate:nth-of-type(2) { animation-delay: 0.4s; }
+    .animate:nth-of-type(3) { animation-delay: 0.6s; }
+    .animate:nth-of-type(4) { animation-delay: 0.8s; }
   </style>
 </head>
 <body>
 
   <img src="https://i.postimg.cc/J45Mr8LW/Screenshot-Google.jpg" 
        alt="Arshiya" 
-       class="profile-img">
+       class="profile-img animate">
 
-  <h1>I'm Arshiya</h1>
-  <p>You're lucky if you know me</p>
+  <h1 class="animate">I'm Arshiya</h1>
+  <p class="animate">You're lucky if you know me</p>
 
-  <div class="links">
+  <div class="links animate">
     <a href="https://t.me/lranTheory" target="_blank">Telegram</a>
     <a href="https://www.instagram.com/dark.light_yt?igsh=MTIzYThmc3d4ejk4eA==" target="_blank">Instagram</a>
   </div>
